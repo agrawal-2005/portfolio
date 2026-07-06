@@ -18,6 +18,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: "Bindisa Agritech",
+    logo: "/logos/bindisa.png",
     role: "Software Engineer Intern",
     period: "May 2025 - Jul 2025",
     location: "Remote",
