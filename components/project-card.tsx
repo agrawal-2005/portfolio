@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/icons";
+import { ProjectName } from "@/components/project-name";
 import type { Project } from "@/data/types";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -20,7 +21,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           <Link href={`/projects/${project.slug}`} className="focus:outline-none">
             {/* Stretched link covers the card */}
             <span className="absolute inset-0" aria-hidden />
-            {project.name}
+            <ProjectName name={project.name} />
           </Link>
         </h2>
         <ArrowUpRight className="size-4 shrink-0 text-muted transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />

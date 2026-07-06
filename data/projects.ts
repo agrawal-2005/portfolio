@@ -25,7 +25,7 @@ export const projects: Project[] = [
         { name: "ChromaDB", role: "Local vector store for low-latency semantic search" },
         { name: "HDBSCAN", role: "Unsupervised clustering over embeddings to surface knowledge clusters" },
         { name: "Groq / Llama 3.3", role: "LLM inference for extraction and workflow synthesis" },
-        { name: "Redis", role: "Caching and pipeline coordination" },
+        { name: "Redis", role: "Message broker for Celery background ingestion and extraction jobs" },
         { name: "React", role: "Frontend for browsing clusters and reviewing flagged workflows" },
       ],
       decisions: [

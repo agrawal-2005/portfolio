@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, ImageIcon } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GitHubIcon } from "@/components/icons";
 import { FadeIn, FadeInOnScroll } from "@/components/motion";
+import { ProjectName } from "@/components/project-name";
 import { getProject, projects } from "@/data/projects";
 
 interface Props {
@@ -43,7 +44,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           {project.tagline}
         </p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          {project.name}
+          <ProjectName name={project.name} />
         </h1>
         <p className="mt-4 leading-relaxed text-muted">{project.oneLiner}</p>
 
@@ -83,16 +84,6 @@ export default async function ProjectDetailPage({ params }: Props) {
             </div>
           ))}
         </dl>
-      </FadeInOnScroll>
-
-      {/* Screenshot placeholder */}
-      <FadeInOnScroll className="mt-12">
-        <div className="flex aspect-video items-center justify-center rounded-lg border border-dashed border-border bg-card">
-          <div className="text-center text-muted">
-            <ImageIcon className="mx-auto size-8" />
-            <p className="mt-2 text-sm">Screenshots and demo GIFs coming soon</p>
-          </div>
-        </div>
       </FadeInOnScroll>
 
       <FadeInOnScroll className="mt-14">
