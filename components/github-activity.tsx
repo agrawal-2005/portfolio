@@ -85,8 +85,7 @@ export function GitHubActivity({
         </h2>
         {profile && (
           <p className="font-mono text-xs text-muted">
-            {profile.repos} repos&ensp;&middot;&ensp;{profile.stars} stars
-            &ensp;&middot;&ensp;{profile.followers} followers
+            {`${profile.repos} repos  ·  ${profile.stars} stars  ·  ${profile.followers} followers`}
           </p>
         )}
       </div>
