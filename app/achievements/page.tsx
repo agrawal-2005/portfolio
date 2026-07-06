@@ -3,6 +3,7 @@ import { Trophy, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { FadeInOnScroll } from "@/components/motion";
 import { achievements, codingProfiles, problemsSolved } from "@/data/achievements";
+import { getCodeforcesStats, getLeetCodeStats } from "@/lib/stats";
 
 export const metadata: Metadata = {
   title: "Achievements",
@@ -10,7 +11,24 @@ export const metadata: Metadata = {
     "Achievements of Prashant Agrawal: HackOn with Amazon Top 10, Flipkart Grid Top 30, LeetCode Knight, Codeforces Expert, CodeChef 5-star.",
 };
 
-export default function AchievementsPage() {
+export default async function AchievementsPage() {
+  const [leetcode, codeforces] = await Promise.all([
+    getLeetCodeStats(),
+    getCodeforcesStats(),
+  ]);
+
+  const liveStats: Record<string, string[]> = {
+    LeetCode: leetcode
+      ? [
+          `${leetcode.totalSolved} problems solved`,
+          ...(leetcode.contestRating ? [`Contest rating ${leetcode.contestRating}`] : []),
+        ]
+      : [],
+    Codeforces: codeforces
+      ? [`Rating ${codeforces.rating} (peak ${codeforces.maxRating})`]
+      : [],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-6 py-20">
       <PageHeader
@@ -63,6 +81,12 @@ export default function AchievementsPage() {
                 <p className="mt-3 inline-flex w-fit rounded-md bg-accent-soft px-2.5 py-1 font-mono text-sm font-semibold text-accent">
                   {profile.rank}
                 </p>
+                {(liveStats[profile.platform] ?? []).length > 0 && (
+                  <p className="mt-2 font-mono text-xs text-muted">
+                    <span className="mr-1.5 inline-block size-1.5 animate-pulse rounded-full bg-accent align-middle" aria-hidden />
+                    {liveStats[profile.platform].join(" · ")}
+                  </p>
+                )}
                 <ul className="mt-3 space-y-1.5">
                   {profile.highlights.map((h) => (
                     <li key={h} className="flex gap-2 text-sm text-muted">

@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
+import { GitHubActivity } from "@/components/github-activity";
 import { FadeIn } from "@/components/motion";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { site } from "@/data/site";
@@ -109,6 +111,10 @@ export default function Home() {
           </div>
         </FadeIn>
       </section>
+
+      <Suspense fallback={null}>
+        <GitHubActivity />
+      </Suspense>
     </div>
   );
 }
