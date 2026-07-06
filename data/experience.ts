@@ -46,13 +46,6 @@ export const timeline: TimelineItem[] = [
     note: "Observability platform and self-service infra tooling.",
   },
   {
-    period: "2024",
-    title: "Amazon ML Summer School",
-    place: "Selected nationwide",
-    kind: "education",
-    note: "Competitive nationwide selection for Amazon's ML program.",
-  },
-  {
     period: "Nov 2022 - Present",
     title: "B.Tech, Electronics and Communication Engineering",
     place: "IIIT Allahabad, Prayagraj",
