@@ -1,4 +1,5 @@
 import { site } from "@/data/site";
+import { featuredRepos } from "@/data/featured-repos";
 
 // All fetchers revalidate hourly and fail soft: a dead external API
 // should never take a page down, so every function returns null on error.
@@ -69,14 +70,18 @@ export async function getGitHubStats(): Promise<GitHubStats | null> {
       .sort((a, b) => b.count - a.count)
       .slice(0, 5);
 
-    const recentRepos: GitHubRepo[] = ownRepos.slice(0, 4).map((r) => ({
-      name: r.name,
-      description: r.description,
-      url: r.html_url,
-      stars: r.stargazers_count,
-      language: r.language,
-      pushedAt: r.pushed_at,
-    }));
+    const featured = new Set<string>(featuredRepos.map((n) => n.toLowerCase()));
+    const recentRepos: GitHubRepo[] = ownRepos
+      .filter((r) => featured.has(r.name.toLowerCase()))
+      .slice(0, 4)
+      .map((r) => ({
+        name: r.name,
+        description: r.description,
+        url: r.html_url,
+        stars: r.stargazers_count,
+        language: r.language,
+        pushedAt: r.pushed_at,
+      }));
 
     return {
       totalStars,
