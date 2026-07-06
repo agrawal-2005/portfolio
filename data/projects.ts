@@ -110,7 +110,7 @@ export const projects: Project[] = [
     name: "WindowShop_AI",
     oneLiner: "Real-time in-video product discovery: point at a product in a video, find it, buy it.",
     tagline: "See it in a video, find it in a click",
-    tech: ["Flask", "PyTorch", "YOLOv8", "CLIP", "OpenCV", "JavaScript"],
+    tech: ["Python", "Flask", "PyTorch", "YOLOv8", "CLIP"],
     github: "https://github.com/agrawal-2005/WindowShop_AI",
     live: "https://windowshop-ai-demo.onrender.com",
     highlights: [
