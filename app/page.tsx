@@ -43,9 +43,10 @@ export default function Home() {
         <FadeIn delay={3}>
           <p className="mt-6 max-w-xl leading-relaxed text-muted">
             Final-year B.Tech student at IIIT Allahabad, currently interning at
-            Locus.sh where my code touches a platform that has handled over a
-            billion deliveries. I like backend problems, reliability engineering,
-            and making LLMs actually useful in production.
+            Locus on a platform that has handled over a billion deliveries.
+            Most of my time goes into distributed systems, reliability
+            engineering, and building GenAI infrastructure that works outside
+            the demo.
           </p>
         </FadeIn>
 
