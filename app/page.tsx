@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, FileText, Mail } from "lucide-react";
 import { GitHubActivity } from "@/components/github-activity";
 import { FadeIn } from "@/components/motion";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
@@ -81,6 +81,14 @@ export default function Home() {
             >
               Get in Touch
             </Link>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent/50 hover:bg-card-hover"
+            >
+              <FileText className="size-4" /> Resume
+            </a>
 
             <div className="ml-2 flex items-center gap-4">
               <a
