@@ -6,6 +6,9 @@ export const site = {
   description:
     "Portfolio of Prashant Agrawal, a final-year B.Tech student at IIIT Allahabad and Software Engineer Intern at Locus.sh. Backend engineering, distributed systems, and GenAI.",
   email: "agrawalprashant906@gmail.com",
+  // Google Drive folder; drop an updated resume here and the site link stays current.
+  resumeUrl:
+    "https://drive.google.com/drive/folders/1TXyT7T-8rb_XCcM3hDrTe8L_v_Jad9K7",
   phone: "+91-9079217864",
   location: "Bengaluru, India",
   github: "https://github.com/agrawal-2005",

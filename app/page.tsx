@@ -82,7 +82,7 @@ export default function Home() {
               Get in Touch
             </Link>
             <a
-              href="/resume.pdf"
+              href={site.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent/50 hover:bg-card-hover"
