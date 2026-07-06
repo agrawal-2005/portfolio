@@ -36,7 +36,7 @@ export default function Home() {
             Software Engineer building{" "}
             <span className="text-foreground">distributed systems</span>,{" "}
             <span className="text-foreground">GenAI infrastructure</span>, and
-            things that scale.
+            backend that holds up in production.
           </p>
         </FadeIn>
 
