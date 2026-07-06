@@ -2,7 +2,7 @@ export const site = {
   name: "Prashant Agrawal",
   tagline:
     "Software Engineer building distributed systems, GenAI infrastructure, and things that scale.",
-  url: "https://prashant-agrawal.vercel.app",
+  url: "https://prashant26.vercel.app",
   description:
     "Portfolio of Prashant Agrawal, a final-year B.Tech student at IIIT Allahabad and Software Engineer Intern at Locus.sh. Backend engineering, distributed systems, and GenAI.",
   email: "agrawalprashant906@gmail.com",
