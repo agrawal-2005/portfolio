@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Send, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Send, Loader2, CheckCircle2 } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -43,22 +44,40 @@ export function ContactForm() {
     }
   }
 
-  if (status === "sent") {
-    return (
-      <div className="rounded-lg border border-accent/40 bg-accent-soft p-6 text-center">
-        <p className="font-medium">Message sent!</p>
-        <p className="mt-1 text-sm text-muted">
-          Thanks for reaching out. I&apos;ll get back to you soon.
-        </p>
-      </div>
-    );
-  }
+  // Auto-dismiss the success toast.
+  useEffect(() => {
+    if (status !== "sent") return;
+    const t = setTimeout(() => setStatus("idle"), 5000);
+    return () => clearTimeout(t);
+  }, [status]);
 
   const inputClasses =
     "w-full rounded-md border border-border bg-card px-3.5 py-2.5 text-sm placeholder:text-muted/60 focus:border-accent/60 focus:outline-none focus:ring-2 focus:ring-accent/20 transition-colors";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <>
+      <AnimatePresence>
+        {status === "sent" && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 16 }}
+            transition={{ duration: 0.25 }}
+            role="status"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-lg border border-accent/40 bg-card p-4 shadow-lg"
+          >
+            <CheckCircle2 className="size-5 text-accent" />
+            <div>
+              <p className="text-sm font-medium">Message sent!</p>
+              <p className="text-xs text-muted">
+                Thanks for reaching out. I&apos;ll get back to you soon.
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
       {/* Honeypot */}
       <input
         type="text"
@@ -133,6 +152,7 @@ export function ContactForm() {
           </>
         )}
       </button>
-    </form>
+      </form>
+    </>
   );
 }
