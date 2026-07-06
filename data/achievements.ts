@@ -5,8 +5,7 @@ export const achievements: Achievement[] = [
   {
     title: "HackOn with Amazon: National Semifinalist",
     logo: "/logos/amazon.png",
-    detail:
-      "Top 10 teams nationwide. Led a team of 3 building WindowShop_AI, a real-time in-video product discovery tool with 92% identification accuracy.",
+    detail: "Top 10 teams nationwide in Amazon's flagship hackathon.",
     year: "2024",
   },
   {
