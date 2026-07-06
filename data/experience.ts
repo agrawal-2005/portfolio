@@ -3,6 +3,7 @@ import type { ExperienceEntry, TimelineItem } from "./types";
 export const experience: ExperienceEntry[] = [
   {
     company: "Locus.sh",
+    logo: "/logos/locus.svg",
     role: "Software Engineer Intern",
     period: "Jan 2026 - Present",
     location: "Bengaluru, India",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, MapPin } from "lucide-react";
 import type { ExperienceEntry } from "@/data/types";
@@ -35,7 +36,18 @@ export function ExperienceTimeline({ entries }: { entries: ExperienceEntry[] }) 
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="font-mono text-xs text-muted">{entry.period}</p>
-                  <h2 className="mt-1 text-lg font-semibold tracking-tight">
+                  <h2 className="mt-1 flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+                    {entry.logo && (
+                      <Image
+                        src={entry.logo}
+                        alt=""
+                        width={22}
+                        height={22}
+                        unoptimized
+                        className="size-[22px] shrink-0 rounded-[4px]"
+                        aria-hidden
+                      />
+                    )}
                     {entry.company}
                   </h2>
                   <p className="text-sm text-accent">{entry.role}</p>

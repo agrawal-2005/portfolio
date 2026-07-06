@@ -4,17 +4,20 @@ import { site } from "./site";
 export const achievements: Achievement[] = [
   {
     title: "HackOn with Amazon: National Semifinalist",
+    logo: "/logos/amazon.png",
     detail:
       "Top 10 teams nationwide. Led a team of 3 building WindowShop_AI, a real-time in-video product discovery tool with 92% identification accuracy.",
     year: "2024",
   },
   {
     title: "Flipkart Grid: National Semifinalist",
+    logo: "/logos/flipkart.png",
     detail: "Top 30 teams in one of India's largest engineering competitions.",
     year: "2024",
   },
   {
     title: "Amazon ML Summer School",
+    logo: "/logos/amazon.png",
     detail: "Selected nationwide for Amazon's competitive machine learning program.",
     year: "2024",
   },

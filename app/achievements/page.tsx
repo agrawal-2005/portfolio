@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Trophy, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { FadeInOnScroll } from "@/components/motion";
@@ -43,7 +44,19 @@ export default async function AchievementsPage() {
           <FadeInOnScroll key={a.title} delay={i}>
             <div className="flex h-full flex-col rounded-lg border border-border bg-card p-5 transition-colors hover:border-accent/30">
               <div className="flex items-center gap-2">
-                <Trophy className="size-4 text-accent" />
+                {a.logo ? (
+                  <Image
+                    src={a.logo}
+                    alt=""
+                    width={18}
+                    height={18}
+                    unoptimized
+                    className="size-[18px] shrink-0 rounded-[4px]"
+                    aria-hidden
+                  />
+                ) : (
+                  <Trophy className="size-4 text-accent" />
+                )}
                 {a.year && (
                   <span className="font-mono text-xs text-muted">{a.year}</span>
                 )}

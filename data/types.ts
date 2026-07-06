@@ -25,6 +25,7 @@ export interface ExperienceEntry {
   summary: string;
   bullets: string[];
   tech: string[];
+  logo?: string;
 }
 
 export interface TimelineItem {
@@ -45,6 +46,7 @@ export interface Achievement {
   detail: string;
   year?: string;
   link?: string;
+  logo?: string;
 }
 
 export interface CodingProfile {
