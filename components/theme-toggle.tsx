@@ -1,14 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
+const emptySubscribe = () => () => {};
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  // True after hydration; false during SSR so server and client HTML match.
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return <div className="size-9 rounded-md border border-border" aria-hidden />;
