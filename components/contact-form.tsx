@@ -64,7 +64,7 @@ export function ContactForm() {
             exit={{ opacity: 0, y: 16 }}
             transition={{ duration: 0.25 }}
             role="status"
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-lg border border-accent/40 bg-card p-4 shadow-lg"
+            className="fixed bottom-6 left-6 right-6 z-50 flex items-center gap-3 rounded-lg border border-accent/40 bg-card p-4 shadow-lg sm:left-auto sm:max-w-sm"
           >
             <CheckCircle2 className="size-5 text-accent" />
             <div>
